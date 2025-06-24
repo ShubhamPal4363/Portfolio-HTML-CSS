@@ -1,3 +1,62 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Unica+One&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(45, 99%, 55%);
+  --first-color-alt: hsl(45, 99%, 48%);
+  --second-color: hsl(22, 100%, 8%);
+  --white-color: hsl(34, 100%, 96%);
+  --title-color: hsl(0, 0%, 5%);
+  --text-color: hsl(0, 0%, 50%);
+  --text-color-light: hsl(0, 0%, 40%);
+  --body-color: hsla(208, 12%, 97%, 1);
+  --body-color-alt: hsla(208, 12%, 88%, 1);
+  --container-color: hsl(34, 100%, 96%);
+  --shadow-small-img: drop-shadow(0 4px 16px hsla(22, 100%, 8%, .2));
+  --shadow-big-img: drop-shadow(0 8px 24px hsla(22, 100%, 8%, .2));
+  --radial-color: radial-gradient(at 15% 85%, hsla(289,56%,78%,1) 0px, transparent 50%),
+  radial-gradient(at 94% 7%, hsla(66,69%,69%,1) 0px, transparent 50%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Raleway", sans-serif;
+  --second-font: "Bebas Neue", sans-serif;
+  --third-font: "Poppins", sans-serif;
+  --fourth-font: "Unica One", sans-serif;
+  --biggest-font-size: 3rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 4.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
 /*=============== BASE ===============*/
 * {
   box-sizing: border-box;
@@ -7,6 +66,33 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-regular);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -23,23 +109,11 @@ html {
 .section {
   padding-block: 5rem 1rem;
 }
-.section__title, 
-.section__subtitle {
-  text-align: center;
-}
 
 .section__title {
+  text-align: center;
   font-size: var(--h1-font-size);
-  font-weight: var(--font-bold);
-  margin-bottom: 1.5rem;
-}
-
-.section__subtitle {
-  display: block;
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-semi-bold);
-  color: var(--second-color);
-  margin-bottom: .5rem;
+  margin-bottom: 2rem;
 }
 
 .main {
@@ -55,7 +129,7 @@ html {
 /* Show menu */
 
 
-/* Change background header */
+/* Add shadow header */
 
 
 /* Active link */
@@ -63,30 +137,98 @@ html {
 
 /*=============== HOME ===============*/
 .home {
-  background-color:hsla(208,12%,97%,1);
-  background-image: radial-gradient(at 15% 85%, hsla(289,56%,78%,1) 0px, transparent 50%),
-  radial-gradient(at 94% 7%, hsla(66,69%,69%,1) 0px, transparent 50%);
+  background-color: var(--body-color);
+  background-image: var(--radial-color);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .home__container {
-  gap: 9.5rem;
+  gap: 7rem;
+}
+
+.home__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home__time__logo {
+  display: inline-flex;
+  align-items: baseline;
+  column-gap: .25rem;
+  font-size: 2.5rem;
+}
+
+.home__info span {
+  text-align: end;
+  font-family: var(--second-font);
+  font-size: 1.35rem;
+  color: var(--text-color);
+}
+
+.home__data {
+  position: relative;
+  justify-self: center;
+}
+
+.home__title {
+  letter-spacing: 2px;
+}
+
+.home__title,
+.home__title .home__prof {
+  font-family: var(--body-font);
+  letter-spacing: 0px;
+}
+
+.home__title {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-medium);
+}
+
+.home__title .home__port {
+  font-family: var(--second-font);
+  font-size: 5.65rem;
+  letter-spacing: 0px;
+}
+
+.home__title .home__prof {
+  display: block;
+  text-align: end;
+  font-size: var(--h2-font-size);
+}
+
+.home__images svg {
+  position: absolute;
+  top: -3rem;
+}
+
+.home__socials a {
+  display: inline-block;
+  font-size: 1.25rem;
+  color: white;
+  padding: .35rem;
+  border-radius: 5px;
+  background-color: #24292e;
+  transition: transform .4s;
+  cursor: pointer;
+}
+
+.home__socials a:hover {
+  transform: translateY(-.25rem);
 }
 
 /*=============== BUTTON ===============*/
 
 
-/*=============== ABOUT ===============*/
+/*=============== RECIPE ===============*/
 
 
-/*=============== SERVICES ===============*/
+/*=============== POPULAR ===============*/
 
 
-/* Swiper class */
-
-
-/*=============== PROJECTS ===============*/
+/*=============== DELIVERY ===============*/
 
 
 /*=============== CONTACT ===============*/
