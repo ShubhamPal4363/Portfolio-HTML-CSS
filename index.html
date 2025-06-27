@@ -27,7 +27,37 @@
   </head>
   <body>
     <!--==================== HEADER ====================-->
-    <header class="header" id="header"></header>
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="#" class="nav__logo"> SxP </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li>
+              <a href="#home" class="nav__link"> Home </a>
+            </li>
+            <li>
+              <a href="#about" class="nav__link"> About </a>
+            </li>
+            <li>
+              <a href="#project" class="nav__link"> Project </a>
+            </li>
+            <li>
+              <a href="#contact" class="nav__link"> Contact </a>
+            </li>
+          </ul>
+
+          <!-- Close Button -->
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-large-line"></i>
+          </div>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-apps-2-fill"></i>
+        </div>
+      </nav>
+    </header>
 
     <!--==================== MAIN ====================-->
     <main class="main">
@@ -50,7 +80,7 @@
               </svg>
             </h1>
 
-            <span> SHUBHAM </span>
+            <span class="home__location">INDIA</span>
           </div>
 
           <div class="home__data">
@@ -98,7 +128,7 @@
 
           <div class="home__info">
             <span class="home__info-text"> Open to Work </span>
-            
+
             <div class="home__socials">
               <a
                 href="https://github.com/shubhampal"
@@ -113,7 +143,71 @@
       </section>
 
       <!--==================== ABOUT ====================-->
-      <section class="about section" id="about"></section>
+      <section class="about section" id="about">
+        <div class="about__container container grid">
+          <div class="about-left__data">
+            <h5 class="about__title">Hey I'm Shubham</h5>
+            <h2 class="about-section__title">A Fullstack Developer</h2>
+
+            <p class="about__description">
+              Crafting seamless user experiences, powered by the MERN stack
+            </p>
+
+            <a href="#" class="button">
+              Contact Me
+              <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+          <div class="about-right__data">
+            <ul class="about__menu">
+              <li class="about__list">
+                10+<br />
+                <span>Projects Built</span>
+              </li>
+              <li class="about__list">
+                2<br />
+                <span>Full-Stack Apps Deployed</span>
+              </li>
+              <li class="about__list">
+                100+<br />
+                <span>GitHub Commits</span>
+              </li>
+              <li class="about__list">
+                3+<br />
+                <span>Team Collaborations</span>
+              </li>
+            </ul>
+          </div>
+
+          <img src="" alt="" />
+        </div>
+      </section>
+      
+      <section class="fresher">
+        <div class="fresher__container">
+          <div id="about-role">
+
+            <!-- ✅ Wrap heading + stickers together -->
+            <div class="fresher-scroll-wrapper">
+              <h3>fresher</h3>
+
+              <!-- Stickers positioned over each letter -->
+              <div class="fresher-images">
+                <img src="assets/img/boy.png" alt="image" class="sticker boy-sticker">
+                <img src="assets/img/html.png" alt="image" class="sticker html-sticker">
+                <img src="assets/img/css.png" alt="image" class="sticker css-sticker">
+                <img src="assets/img/js.png" alt="image" class="sticker js-sticker">
+                <img src="assets/img/react.png" alt="image" class="sticker react-sticker">
+                <img src="assets/img/node.png" alt="image" class="sticker node-sticker">
+                <img src="assets/img/mongodb.png" alt="image" class="sticker mongodb-sticker">
+                <img src="assets/img/express.png" alt="image" class="sticker express-sticker">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
 
       <!--==================== SERVICES ====================-->
       <section class="services section" id="services"></section>
@@ -139,6 +233,7 @@
     <!--=============== GSAP ===============-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>

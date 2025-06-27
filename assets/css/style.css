@@ -1,5 +1,5 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -9,12 +9,12 @@
   /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(45, 99%, 55%);
   --first-color-alt: hsl(45, 99%, 48%);
-  --second-color: hsl(22, 100%, 8%);
+  --india-color: linear-gradient(90deg,rgba(255, 78, 0, 1) 0%, rgba(142, 166, 4, 1) 100%);
   --white-color: hsl(34, 100%, 96%);
   --title-color: hsl(0, 0%, 5%);
   --text-color: hsl(0, 0%, 50%);
   --text-color-light: hsl(0, 0%, 40%);
-  --body-color: hsla(208, 12%, 97%, 1);
+  --body-color: hsl(35, 27%, 91%);
   --body-color-alt: hsla(208, 12%, 88%, 1);
   --container-color: hsl(34, 100%, 96%);
   --shadow-small-img: drop-shadow(0 4px 16px hsla(22, 100%, 8%, .2));
@@ -27,7 +27,6 @@
   --body-font: "Raleway", sans-serif;
   --second-font: "Bebas Neue", sans-serif;
   --third-font: "Poppins", sans-serif;
-  --fourth-font: "Unica One", sans-serif;
   --biggest-font-size: 3rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
@@ -72,7 +71,8 @@ body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
-  color: var(--text-color);
+  color: var(--title-color);
+  /* overflow-x: hidden; */
 }
 
 h1, h2, h3, h4 {
@@ -121,28 +121,104 @@ img {
 }
 
 /*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  width: 100%;
+}
 
+.nav {
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-size: var(--h1-font-size);
+  font-family: var(--fourth-font);
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__logo,
+.nav__toggle {
+  color: var(--title-color);
+}
+
+.nav__toggle,
+.nav__close {
+  display: flex;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 
 /* Navigation for mobile devices */
+@media screen and (max-width: 1150px) {
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -120%;
+    background-color: var(--title-color);
+    width: 80%;
+    height: 100%;
+    padding-block: 4.5rem 3.5rem;
+    box-shadow: 0 4px 16px hsla(353, 100%, 8%, .1);
+    transition: right .4s;
+  }
+}
 
+.nav__list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 2.25rem;
+}
+
+.nav__link {
+  position: relative;
+  color: white;
+  font-family: var(--second-font);
+  font-size: 3.25rem;
+}
+
+.nav__link::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background-color: var(--text-color);
+  position: absolute;
+  left: 0;
+  bottom: -.5rem;
+  transition: width .4s;
+}
+
+.nav__link:hover::after {
+  width: 60%;
+}
+
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
 
 /* Show menu */
-
+.show-menu {
+  right: 0;
+}
 
 /* Add shadow header */
 
 
 /* Active link */
-
+/* .active-link::after {
+  width: 60%;
+} */
 
 /*=============== HOME ===============*/
-.home {
-  background-color: var(--body-color);
-  background-image: var(--radial-color);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .home__container {
   gap: 7rem;
 }
@@ -220,10 +296,160 @@ img {
 }
 
 /*=============== BUTTON ===============*/
+.button {
+  background-color: var(--title-color);
+  padding: .75rem .95rem;
+  color: var(--white-color);
+  font-size: var(--h3-font-size);
+  border-radius: 20px;
+}
 
+.button i {
+  display: inline-block;
+  background-color: var(--white-color);
+  color: var(--title-color);
+  padding: .25rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  margin-left: .25rem;
+  cursor: pointer;
+  transition: transform .4s;
+}
 
-/*=============== RECIPE ===============*/
+.button i:hover {
+  transform: translateX(.35rem);
+}
 
+/*=============== ABOUT ===============*/
+.about__title {
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.about__title,
+.about__description {
+  font-family: var(--body-font);
+}
+
+.about-section__title {
+  font-family: var(--second-font);
+  font-size: 3.5rem;
+  color: orangered;
+}
+
+.about__description {
+  font-size: var(--h2-font-size);
+  margin-bottom: 25px;
+}
+
+.about__menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.65rem;
+}
+
+.about__list {
+  font-family: var(--second-font);
+  font-size: 1.29rem;
+}
+
+.about__list span {
+  color: var(--text-color);
+  font-family: var(--fourth-font);
+}
+
+.fresher__container {
+  position: relative;
+  overflow: hidden;
+}
+
+#about-role {
+  background-color: orangered;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.fresher-scroll-wrapper {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+#about-role h3 {
+  font-size: 25rem;
+  text-transform: uppercase;
+  font-family: var(--second-font);
+  color: var(--white-color);
+  font-weight: 600;
+  letter-spacing: 12px;
+  padding: 0 1.25rem;
+  display: inline-block;
+}
+
+/* === Stickers === */
+.fresher-images {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sticker {
+  position: absolute;
+  width: 60px;
+  z-index: 2;
+}
+
+/* === Position stickers based on your plan === */
+.boy-sticker {
+  left: -1%;
+  top: 50px;
+  width: 150px;
+}
+
+.html-sticker {
+  left: 15%;
+  top: 50%;
+  width: 60px;
+}
+
+.css-sticker {
+  left: 56%;
+  bottom: 12%;
+  width: 60px;
+}
+
+.js-sticker {
+  left: 56%;
+  bottom: 10%;
+  width: 60px;
+}
+
+.react-sticker {
+  left: 42%;
+  top: 30%;
+}
+
+.node-sticker {
+  left: 50%;
+  top: 45%;
+}
+
+.mongodb-sticker {
+  left: 60%;
+  top: 35%;
+}
+
+.express-sticker {
+  left: 70%;
+  top: 20%;
+}
 
 /*=============== POPULAR ===============*/
 

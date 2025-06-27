@@ -1,0 +1,7 @@
+/* .home {
+  background-color: var(--body-color);
+  background-image: var(--radial-color);
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
